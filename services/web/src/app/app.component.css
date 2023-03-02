@@ -1,0 +1,40 @@
+.heading{
+    color:#fca311;
+    font-size: 72px;
+    font-family: "Roboto";
+}
+.button-wrapper{
+	display: flex;
+    align-items: center;
+}
+
+.button{
+    border-radius: 10px;
+    width: 150px;
+    height: 150px;
+    font-size:45px;
+}
+.p1-button{
+    color:#023047 !important;
+}
+
+
+.com-button:disabled{
+  border: 1px solid #023047;
+  background-color: #023047;
+  color: #fca311 !important;
+}
+
+
+.divider{
+    height:80%;
+    width: 5px;
+    color:black
+}
+
+.header{
+    height:5% !important
+}
+.container{
+    height:70% !important
+}
