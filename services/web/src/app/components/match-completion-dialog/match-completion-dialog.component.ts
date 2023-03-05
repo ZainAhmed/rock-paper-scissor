@@ -1,6 +1,6 @@
-import { Component, Inject } from '@angular/core';
+import { Component, EventEmitter, Inject, Output } from '@angular/core';
 import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
-import {  faStar, faXmark} from '@fortawesome/free-solid-svg-icons';
+import {  faTrophy, faFaceSadTear} from '@fortawesome/free-solid-svg-icons';
 export interface DialogData {
   winner: string;
 }
@@ -11,6 +11,8 @@ export interface DialogData {
   styleUrls: ['./match-completion-dialog.component.css']
 })
 export class MatchCompletionDialogComponent {
+  @Output() resetMatchEmitter: EventEmitter<void> = new EventEmitter()
+
   constructor(
     public dialogRef: MatDialogRef<MatchCompletionDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
@@ -18,8 +20,11 @@ export class MatchCompletionDialogComponent {
     dialogRef.disableClose = true;
   }
   
-  starIcon = faStar
-  xIcon = faXmark
-  resetMatch(){}
+  trophyIcon = faTrophy
+  sadIcon = faFaceSadTear
+  
+  resetMatch(){
+    this.dialogRef.close();
+  }
 
 }

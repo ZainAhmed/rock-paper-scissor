@@ -24,11 +24,13 @@ export class HeaderComponent implements OnChanges {
     }
   }
 
-  
-  
   openDialog(winner:string): void {
-    this.dialog.open(MatchCompletionDialogComponent, {
+    let dialogRef = this.dialog.open(MatchCompletionDialogComponent, {
       data: {winner: winner},
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.resetMatch()
+      
     });
   }
 
@@ -53,22 +55,33 @@ export class HeaderComponent implements OnChanges {
   isMatchWon(){
     if(this.p1Scores[2]===1){
       this.openDialog("p1")
+      return true
     } else if(this.comScores[0]===1){
       this.openDialog("com")
+      return true
     }
+    return false
   }
 
   ngOnChanges(changes: SimpleChanges) {
    if(changes["gameResult"].currentValue !==""){
       setTimeout(()=>{const result = changes["gameResult"].currentValue
         if(result === "You Win"){
-        this.updateScore(false)
+          this.updateScore(false)
         } else if(result === "You Lose"){
-        this.updateScore(true)
+          this.updateScore(true)
         }
-        this.resetRound()
-        this.isMatchWon()
+        const isWon = this.isMatchWon()
+        if(!isWon){
+          this.resetRound()
+        } 
       },3000)
     }
+  }
+
+  resetMatch(){
+    this.p1Scores = [0,0,0]
+    this.comScores = [0,0,0]
+    this.resetRound()
   }
 }

@@ -107,6 +107,5 @@ export class AppComponent {
       {name:"Paper",icon:faHand,isCom:true,isDisabled:false},
       {name:"Rock",icon:faHandFist,isCom:true,isDisabled:false},
     ]
-  
   }
 }
