@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatchCompletionDialogComponent } from '../match-completion-dialog/match-completion-dialog.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,10 +9,10 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 export class HeaderComponent implements OnChanges {
   @Input() gameResult:string | undefined;
   @Output() resetRoundEmitter: EventEmitter<void> = new EventEmitter()
-  @Output() setWinnerEmitter: EventEmitter<string> = new EventEmitter()
   p1Scores = [0,0,0]
   comScores = [0,0,0]
 
+  constructor(public dialog: MatDialog){}
   updateComScore(){
     const scores = this.comScores
     let index =scores.indexOf(1);
@@ -22,7 +24,15 @@ export class HeaderComponent implements OnChanges {
     }
   }
 
-  upadateP1Score(){
+  
+  
+  openDialog(winner:string): void {
+    this.dialog.open(MatchCompletionDialogComponent, {
+      data: {winner: winner},
+    });
+  }
+
+  updateP1Score(){
     const scores = this.p1Scores
     let index =scores.indexOf(0);
     scores[index]=1
@@ -32,7 +42,7 @@ export class HeaderComponent implements OnChanges {
     if(isCom){
     this.updateComScore()
     } else{
-      this.upadateP1Score()
+      this.updateP1Score()
     }
   }
 
@@ -42,9 +52,9 @@ export class HeaderComponent implements OnChanges {
 
   isMatchWon(){
     if(this.p1Scores[2]===1){
-      this.setWinnerEmitter.emit("p1");
+      this.openDialog("p1")
     } else if(this.comScores[0]===1){
-      this.setWinnerEmitter.emit("com");
+      this.openDialog("com")
     }
   }
 

@@ -1,0 +1,18 @@
+<div class="dialog">
+    <div class="dialog" *ngIf="data.winner==='com';else elseBlock">
+        <fa-icon  class="xIcon" size="5x" [icon]="xIcon"></fa-icon>
+        <h1>You Lost!</h1>
+        <button (click)='resetMatch()'mat-raised-button color="accent">
+            Play again
+        </button>
+    </div>
+    <ng-template class="dialog"  #elseBlock>
+        <fa-icon class='starIcon'size="5x" [icon]="starIcon"></fa-icon>
+        <h1>You Won!</h1>
+        <button (click)='resetMatch()'mat-raised-button color="accent">
+            Play again
+        </button>
+    </ng-template>
+    
+</div>
+

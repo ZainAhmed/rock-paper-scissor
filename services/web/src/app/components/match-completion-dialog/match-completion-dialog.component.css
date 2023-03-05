@@ -1,0 +1,17 @@
+.starIcon{
+    color:#fca311;
+}
+
+.xIcon{
+    color:#c1121f;
+}
+
+.dialog{
+    height: 35vh;
+    width: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+

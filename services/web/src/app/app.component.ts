@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { faHandFist, faHandScissors, faHand} from '@fortawesome/free-solid-svg-icons';
-
 import { WeaponButtonType } from './WeaponButtonType';
 
 @Component({
@@ -9,6 +8,7 @@ import { WeaponButtonType } from './WeaponButtonType';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   DRAW = "Its a Draw"
   WIN="You Win"
   LOSE = "You Lose"
@@ -51,14 +51,6 @@ export class AppComponent {
   handleComButtonClick(){
     const index = this.getRandomInt(3);
     this.setDisableComButtonNotMatchingIndex(index)
-  }
-
-  setScore(winnerScores:Array<number>,isCom:boolean){
-    let index = winnerScores.indexOf(1)
-    if(index === -1){
-      index = 0
-    }
-
   }
   
   findResultAndSetWinner(p1:string,com:string){
@@ -116,9 +108,5 @@ export class AppComponent {
       {name:"Rock",icon:faHandFist,isCom:true,isDisabled:false},
     ]
   
-  }
-
-  setWinner(winner:string){
-    console.log(winner)
   }
 }
