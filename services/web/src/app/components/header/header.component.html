@@ -1,0 +1,5 @@
+<div class="header" fxLayoutAlign="space-between" >
+    <app-display-score [playerName]="'You'" [scores]="p1Scores"></app-display-score>
+    <h1  *ngIf="gameResult !== undefined && gameResult.length>0">{{gameResult}}</h1>
+    <app-display-score [playerName]="'Com'" [scores]="comScores"></app-display-score>
+</div>

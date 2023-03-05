@@ -1,22 +1,11 @@
-<div     class="header"
-fxLayoutAlign="space-evenly" >
-<h1>You</h1>
-<h1>Com</h1>
-</div>
+<app-header (resetRoundEmitter)="resetRound()" (setWinnerEmitter)="setWinner($event)" [gameResult]="gameResult"></app-header>
 
-<div    class="container"
-fxLayoutAlign="space-evenly center" >
-    <div *ngFor="let option of options">
-        <app-p1-button [p1Button]="option"></app-p1-button>
+<div class="container" fxLayoutAlign="space-evenly center" >
+    <div *ngFor="let p1Button of p1Buttons">
+        <app-weapon-button [weaponButton]="p1Button" (weaponButtonClickEmitter)="handleWeaponButtonClick($event)"></app-weapon-button>
     </div>
-
     <mat-divider [vertical]="true" class="divider"></mat-divider>
-
-    <div *ngFor="let option of options">
-        <button class="button com-button" mat-raised-button color="accent" disabled>
-            <fa-icon [icon]="option.icon"/>
-            <br/>
-            {{option.name}}
-        </button>
+    <div *ngFor="let comButton of comButtons">
+        <app-weapon-button [weaponButton]="comButton"></app-weapon-button>
     </div>
 </div>

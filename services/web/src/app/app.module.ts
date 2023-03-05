@@ -9,11 +9,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider';
-import { P1ButtonComponent } from './components/p1-button/p1-button.component'
+import { WeaponButtonComponent } from './components/weapon-button/weapon-button.component';
+import { HeaderComponent } from './components/header/header.component';
+import { DisplayScoreComponent } from './components/display-score/display-score.component'
 @NgModule({
   declarations: [
     AppComponent,
-    P1ButtonComponent
+    WeaponButtonComponent,
+    HeaderComponent,
+    DisplayScoreComponent
   ],
   imports: [
     BrowserModule,

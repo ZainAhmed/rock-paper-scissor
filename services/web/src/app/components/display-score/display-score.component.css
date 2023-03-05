@@ -1,0 +1,14 @@
+.flex-wrapper{
+	display: flex;
+    align-items: center;
+}
+.comHeader{
+    padding-left: 10%;
+}
+.starIcon{
+    color:#fca311;
+}
+
+.p1Header{
+    padding-right: 10%;
+}

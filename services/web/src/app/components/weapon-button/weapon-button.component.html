@@ -1,0 +1,17 @@
+
+<span *ngIf="weaponButton !== undefined">
+    <span *ngIf="weaponButton.isCom ===true; else elseBlock">
+        <button     [ngClass]="{'disabledButton': weaponButton.isDisabled === true}" class="button com-button" mat-raised-button color="accent" disabled>
+            <fa-icon   size="2x" [icon]="weaponButton.icon" />
+            <br/>
+            {{weaponButton.name}}
+        </button>
+    </span>
+    <ng-template #elseBlock>
+    <button [disabled]='weaponButton.isDisabled' class="button p1-button disabledButton" mat-raised-button color="primary" (click)="onClick(weaponButton)">
+        <fa-icon  flip="horizontal" size="2x" [icon]="weaponButton.icon"/>
+        <br/>
+        {{weaponButton.name}}
+    </button> 
+</ng-template>
+</span>

@@ -1,0 +1,23 @@
+/* .flex-wrapper{
+	display: flex;
+    align-items: center;
+}
+.comHeader{
+    padding-left: 10%;
+} */
+
+.p1Header{
+    padding-right: 10%;
+}
+.p1HeaderIcon{
+    color:#fca311;
+}
+.header{
+    margin: 0 50px;
+    height:5% !important
+}
+.heading{
+    color:#fca311;
+    font-size: 72px;
+    font-family: "Roboto";
+}
