@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { WeaponButtonType } from 'src/app/WeaponButtonType';
+import { WeaponButtonType } from 'src/app/weaponButtonType';
 
 @Component({
   selector: 'app-weapon-button',

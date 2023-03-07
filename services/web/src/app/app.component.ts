@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { faHandFist, faHandScissors, faHand} from '@fortawesome/free-solid-svg-icons';
-import { WeaponButtonType } from './WeaponButtonType';
+import { WeaponButtonType } from './weaponButtonType';
 
 @Component({
   selector: 'app-root',

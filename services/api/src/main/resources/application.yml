@@ -2,8 +2,8 @@ server:
   port: 8080
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5332/rps
-    username: username
+    url: jdbc:postgresql://localhost:5332/rock-paper-scissor
+    username: admin
     password: password
   jpa:
     hibernate:

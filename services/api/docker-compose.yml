@@ -3,18 +3,12 @@ services:
     container_name: postgres
     image: postgres
     environment:
-      POSTGRES_USER: username
+      POSTGRES_USER: admin
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: rps
-      PGDATA: /data/postgres
+      POSTGRES_DB: rock-paper-scissor
     volumes:
-      - db:/data/postgres
-
+      - ./log-directory:/var/lib/postgresql
     ports:
       - "5332:5432"
-    networks:
-      - db
     restart: unless-stopped
 
-volumes:
-  db:

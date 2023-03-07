@@ -14,6 +14,7 @@ import { WeaponButtonComponent } from './components/weapon-button/weapon-button.
 import { HeaderComponent } from './components/header/header.component';
 import { DisplayScoreComponent } from './components/display-score/display-score.component';
 import { MatchCompletionDialogComponent } from './components/match-completion-dialog/match-completion-dialog.component'
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { MatchCompletionDialogComponent } from './components/match-completion-di
     FlexLayoutModule,
     MatGridListModule,
     MatDividerModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
