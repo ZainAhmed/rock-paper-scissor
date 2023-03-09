@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { faHandFist, faHandScissors, faHand} from '@fortawesome/free-solid-svg-icons';
+import { GameStatusService } from './game-status.service';
+import { GameStatus } from './gameStatus';
 import { WeaponButtonType } from './weaponButtonType';
 
 @Component({
@@ -7,7 +10,7 @@ import { WeaponButtonType } from './weaponButtonType';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   DRAW = "Its a Draw"
   WIN="You Win"
@@ -25,6 +28,23 @@ export class AppComponent {
     {name:"Paper",icon:faHand,isCom:true,isDisabled:false},
     {name:"Rock",icon:faHandFist,isCom:true,isDisabled:false},
   ]
+  constructor(private gameStatusService: GameStatusService){}
+
+  addGameStatus(){
+    this.gameStatusService.addGamesStatuses({won:0,lose:0,draw:0}).subscribe({
+      next: (response:GameStatus) => console.log(response),
+      error: (e:HttpErrorResponse) => console.log(e),
+      // complete: () => console.info('complete') 
+  })
+    //   (response:GameStatus)=>{
+    //   console.log(response)
+    // },
+    // (error:HttpErrorResponse)=>{alert(error.message)})
+  }
+
+  ngOnInit() {
+    this.addGameStatus()
+  }
 
   handleP1ButtonClick(input:WeaponButtonType){
     this.p1Buttons = this.p1Buttons.map((val)=>{

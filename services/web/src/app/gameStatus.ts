@@ -1,5 +1,5 @@
 export interface GameStatus{
-    id:number; 
+    id?:number; 
     draw:number;
     lose:number;
     won:number;

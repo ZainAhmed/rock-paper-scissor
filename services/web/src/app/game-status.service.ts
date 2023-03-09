@@ -14,12 +14,12 @@ export class GameStatusService {
     return this.http.get<GameStatus[]>(`${this.apiServiceUrl}/status/all`)
   }
 
-  public addGamesStatuses(): Observable<GameStatus[]>{
-    return this.http.get<GameStatus[]>(`${this.apiServiceUrl}/status/add`)
+  public addGamesStatuses( gameStatus: GameStatus): Observable<GameStatus>{
+    return this.http.post<GameStatus>(`${this.apiServiceUrl}/status/add`,gameStatus)
   }
 
-  public updateGammeStatus():Observable<GameStatus[]>{
-    return this.http.get<GameStatus[]>(`${this.apiServiceUrl}/status/update`)
+  public updateGammeStatus(gameStatus: GameStatus):Observable<GameStatus>{
+    return this.http.put<GameStatus>(`${this.apiServiceUrl}/status/update`,gameStatus)
   }
 
 }

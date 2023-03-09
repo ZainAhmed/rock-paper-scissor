@@ -20,7 +20,7 @@ public class GameStatusController {
     @GetMapping("/all")
     public ResponseEntity<List<GameStatus>> getAllStatuses(){
          List<GameStatus> gameStatuses = gameStatusService.findAllGameStatuses();
-         return new ResponseEntity<>(gameStatuses ,HttpStatus.OK)
+         return new ResponseEntity<>(gameStatuses ,HttpStatus.OK);
     }
     @PostMapping("/add")
     public ResponseEntity<GameStatus> addGameStatus(@RequestBody GameStatus gameStatus){
