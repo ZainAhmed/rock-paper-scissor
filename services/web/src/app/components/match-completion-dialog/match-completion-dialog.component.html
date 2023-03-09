@@ -1,18 +1,20 @@
 <div class="dialog">
-    <div class="dialog" *ngIf="data.winner==='com';else elseBlock">
-        <fa-icon  class="icon" size="5x" [icon]="sadIcon"></fa-icon>
-        <h1>You Lose!</h1>
-        <button (click)='resetMatch()'mat-raised-button color="accent">
+    <div class="dialog" >
+        <div *ngIf="data.winner==='com';else elseBlock">
+            <fa-icon  class="icon" size="5x" [icon]="sadIcon"></fa-icon>
+            <h1 class="centerText">You Lose!</h1>
+        </div>
+        <ng-template  #elseBlock>
+            <fa-icon class='icon'size="5x" [icon]="trophyIcon"></fa-icon>
+            <h1 class="centerText">You Win!</h1>
+        </ng-template>
+        <div *ngIf="status !== undefined">
+            <h2 class="centerText">Game Summary:</h2>
+            <h3 class="centerText">Lost {{status.lose}}    Won {{status.won}}   Draw {{status.draw}}</h3>
+        </div>
+        <button class="button" (click)='resetMatch()'mat-raised-button color="accent">
             Play again
         </button>
     </div>
-    <ng-template class="dialog"  #elseBlock>
-        <fa-icon class='icon'size="5x" [icon]="trophyIcon"></fa-icon>
-        <h1>You Win!</h1>
-        <button (click)='resetMatch()'mat-raised-button color="accent">
-            Play again
-        </button>
-    </ng-template>
-    
 </div>
 

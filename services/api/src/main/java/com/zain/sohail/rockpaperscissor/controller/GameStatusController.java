@@ -1,5 +1,6 @@
 package com.zain.sohail.rockpaperscissor.controller;
 
+import com.zain.sohail.rockpaperscissor.interfaces.UpdateById;
 import com.zain.sohail.rockpaperscissor.model.GameStatus;
 import com.zain.sohail.rockpaperscissor.service.GameStatusService;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,7 @@ public class GameStatusController {
         this.gameStatusService = gameStatusService;
     }
 
-    @GetMapping("/find/id")
+    @GetMapping("/find/{id}")
     public ResponseEntity<GameStatus> getAllStatuses(@PathVariable("id") Integer id){
          GameStatus gameStatuses = gameStatusService.findGameStatusById(id);
          return new ResponseEntity<>(gameStatuses ,HttpStatus.OK);
@@ -35,8 +36,8 @@ public class GameStatusController {
     }
 
     @PutMapping("/updateByAttribute")
-    public ResponseEntity<GameStatus> updateEmployeeAttribute(@RequestBody Integer id, String attribute){
-        GameStatus updatedGameStatus = gameStatusService.updateGameStatusByAttribute(id,attribute);
+    public ResponseEntity<GameStatus> updateEmployeeAttribute(@RequestBody UpdateById obj){
+        GameStatus updatedGameStatus = gameStatusService.updateGameStatusByAttribute(obj.id,obj.attribute);
         return new ResponseEntity<>(updatedGameStatus,HttpStatus.OK);
     }
 

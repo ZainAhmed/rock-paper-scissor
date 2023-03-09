@@ -1,13 +1,26 @@
 .icon{
+    margin-top:15px;
     color:#fca311;
+    display: flex;
+    justify-content: center;
 }
 
+.button{
+    margin-bottom:15px;
+}
 .dialog{
-    height: 35vh;
-    width: 60vh;
+    min-height:350px;
+    min-width: 500px;
+    height: 50vh;
+    width: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 }
+
+.centerText{
+    text-align: center;
+}
+
 
