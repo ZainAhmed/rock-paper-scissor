@@ -4,4 +4,5 @@ import com.zain.sohail.rockpaperscissor.model.GameStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface GameStatusRepo extends JpaRepository<GameStatus,Integer> {
+    GameStatus findGameStatusById(Integer id);
 }

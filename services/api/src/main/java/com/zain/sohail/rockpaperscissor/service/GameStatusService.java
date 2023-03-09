@@ -22,6 +22,8 @@ public class GameStatusService {
     public List<GameStatus> findAllGameStatuses(){
         return gameStatusRepo.findAll();
     }
+
+    
     public GameStatus updateGameStatus(GameStatus gameStatus){
         return gameStatusRepo.save(gameStatus);
     }

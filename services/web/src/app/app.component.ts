@@ -11,7 +11,7 @@ import { WeaponButtonType } from './weaponButtonType';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-
+  id:Number | undefined;
   DRAW = "Its a Draw"
   WIN="You Win"
   LOSE = "You Lose"
@@ -32,14 +32,9 @@ export class AppComponent implements OnInit{
 
   addGameStatus(){
     this.gameStatusService.addGamesStatuses({won:0,lose:0,draw:0}).subscribe({
-      next: (response:GameStatus) => console.log(response),
+      next: (response:GameStatus) => {this.id=response.id as number},
       error: (e:HttpErrorResponse) => console.log(e),
-      // complete: () => console.info('complete') 
-  })
-    //   (response:GameStatus)=>{
-    //   console.log(response)
-    // },
-    // (error:HttpErrorResponse)=>{alert(error.message)})
+    })
   }
 
   ngOnInit() {
