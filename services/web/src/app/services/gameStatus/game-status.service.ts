@@ -19,10 +19,6 @@ export class GameStatusService {
     return this.http.post<GameStatus>(`${this.apiServiceUrl}/status/add`,gameStatus)
   }
 
-  public updateGameStatus(gameStatus: GameStatus):Observable<GameStatus>{
-    return this.http.put<GameStatus>(`${this.apiServiceUrl}/status/update`,gameStatus)
-  }
-
 
   public updateGameStatusByAttribute(id:Number,attribute:String):Observable<GameStatus>{
     return this.http.put<GameStatus>(`${this.apiServiceUrl}/status/updateByAttribute`,{id:id,attribute:attribute})
