@@ -17,21 +17,28 @@ public class GameStatusController {
         this.gameStatusService = gameStatusService;
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<List<GameStatus>> getAllStatuses(){
-         List<GameStatus> gameStatuses = gameStatusService.findAllGameStatuses();
+    @GetMapping("/find/id")
+    public ResponseEntity<GameStatus> getAllStatuses(@PathVariable("id") Integer id){
+         GameStatus gameStatuses = gameStatusService.findGameStatusById(id);
          return new ResponseEntity<>(gameStatuses ,HttpStatus.OK);
     }
     @PostMapping("/add")
     public ResponseEntity<GameStatus> addGameStatus(@RequestBody GameStatus gameStatus){
         GameStatus newGameStatus = gameStatusService.addGameStatus(gameStatus);
         return new ResponseEntity<>(newGameStatus, HttpStatus.CREATED );
-
     }
 
-    @PutMapping("update")
+    @PutMapping("/update")
     public ResponseEntity<GameStatus> updateEmployee(@RequestBody GameStatus gameStatus){
         GameStatus updatedGameStatus = gameStatusService.updateGameStatus(gameStatus);
         return new ResponseEntity<>(updatedGameStatus,HttpStatus.OK);
     }
+
+    @PutMapping("/updateByAttribute")
+    public ResponseEntity<GameStatus> updateEmployeeAttribute(@RequestBody Integer id, String attribute){
+        GameStatus updatedGameStatus = gameStatusService.updateGameStatusByAttribute(id,attribute);
+        return new ResponseEntity<>(updatedGameStatus,HttpStatus.OK);
+    }
+
+
 }

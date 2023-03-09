@@ -19,11 +19,26 @@ public class GameStatusService {
     public GameStatus addGameStatus(GameStatus gameStatus){
        return gameStatusRepo.save(gameStatus);
     }
-    public List<GameStatus> findAllGameStatuses(){
-        return gameStatusRepo.findAll();
+
+    public GameStatus findGameStatusById(Integer id){
+        return gameStatusRepo.findGameStatusById(id);
     }
 
-    
+    public GameStatus updateGameStatusByAttribute(Integer id,String attribute){
+        GameStatus gameStatus =  this.findGameStatusById(id);
+        switch(attribute){
+            case "draw":
+                gameStatus.setDraw(gameStatus.getDraw()+1);
+                break;
+            case "won":
+                gameStatus.setWon(gameStatus.getWon()+1);
+                break;
+            case "lose":
+                gameStatus.setLose(gameStatus.getLose()+1);
+                break;
+        }
+        return gameStatusRepo.save(gameStatus);
+    }
     public GameStatus updateGameStatus(GameStatus gameStatus){
         return gameStatusRepo.save(gameStatus);
     }
