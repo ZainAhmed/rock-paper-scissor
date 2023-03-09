@@ -1,5 +1,6 @@
 package com.zain.sohail.rockpaperscissor.service;
 
+import com.zain.sohail.rockpaperscissor.exception.UserNotFoundException;
 import com.zain.sohail.rockpaperscissor.model.GameStatus;
 import com.zain.sohail.rockpaperscissor.repo.GameStatusRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,8 @@ public class GameStatusService {
     }
 
     public GameStatus findGameStatusById(Integer id){
-        return gameStatusRepo.findGameStatusById(id);
+        return gameStatusRepo.findGameStatusById(id)
+                .orElseThrow(()-> new UserNotFoundException("User by id "+ id + " was not found"));
     }
 
     public GameStatus updateGameStatusByAttribute(Integer id,String attribute){

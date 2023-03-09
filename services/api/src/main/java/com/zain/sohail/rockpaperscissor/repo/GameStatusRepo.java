@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface GameStatusRepo extends JpaRepository<GameStatus,Integer> {
-    GameStatus findGameStatusById(Integer id);
+    Optional<GameStatus> findGameStatusById(Integer id);
 }
