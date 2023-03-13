@@ -42,7 +42,7 @@ export class HeaderComponent implements OnChanges {
 
   updateScore(isCom:boolean){
     if(isCom){
-    this.updateComScore()
+      this.updateComScore()
     } else{
       this.updateP1Score()
     }
