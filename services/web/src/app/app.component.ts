@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { faHandFist, faHandScissors, faHand} from '@fortawesome/free-solid-svg-icons';
 import { GameStatusService } from './services/gameStatus/game-status.service';
 import { GameStatus } from './gameStatus';
-import { WeaponButtonType } from './weaponButtonType';
+import { WeaponButtonType } from './WeaponButtonType';
 import { SharedIdService } from './services/sharedId/shared-id.service';
 
 @Component({
@@ -20,19 +20,13 @@ export class AppComponent implements OnInit{
   WIN="You Win"
   LOSE = "You Lose"
   gameResult="";
-
+  selectedP1Btn  : WeaponButtonType |undefined;
+  
   p1Buttons:Array<WeaponButtonType> =[
-    {name:"Rock",icon:faHandFist,isCom:false,isDisabled:false},
-    {name:"Paper",icon:faHand,isCom:false,isDisabled:false},
-    {name:"Scissor",icon:faHandScissors,isCom:false,isDisabled:false}
+    {name:"Rock",icon:faHandFist},
+    {name:"Paper",icon:faHand},
+    {name:"Scissor",icon:faHandScissors}
   ]
-
-  comButtons:Array<WeaponButtonType> =[
-    {name:"Scissor",icon:faHandScissors,isCom:true,isDisabled:false},
-    {name:"Paper",icon:faHand,isCom:true,isDisabled:false},
-    {name:"Rock",icon:faHandFist,isCom:true,isDisabled:false},
-  ]
- 
 
   addGameStatus(){
     this.gameStatusService.addGamesStatuses({won:0,lose:0,draw:0}).subscribe({
@@ -54,37 +48,15 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
     this.addGameStatus()
-    
   }
 
   handleP1ButtonClick(input:WeaponButtonType){
-    this.p1Buttons = this.p1Buttons.map((val)=>{
-      if(val.name !== input.name){
-        val.isDisabled= true
-      }
-      return val
-    })
-  }
-
-  getRandomInt(max:number) {
-    return Math.floor(Math.random() * max);
-  }
-
-  setDisableComButtonNotMatchingIndex(index:number){
-    this.comButtons = this.comButtons.map((val,ind)=>{
-      if(ind !== index){
-        val.isDisabled= true
-      }
-      return val
-    })
-  }
-
-  handleComButtonClick(){
-    const index = this.getRandomInt(3);
-    this.setDisableComButtonNotMatchingIndex(index)
+    this.selectedP1Btn = this.p1Buttons.filter((val)=>val.name === input.name)[0]
+   
   }
   
-  findResultAndSetWinner(p1:string,com:string){
+  findResultAndSetWinner(input:Array<string|undefined>){
+   const  [p1,com] = input
     switch(true){
       case (p1==="Rock" && com==="Rock"):
         this.gameResult = this.DRAW
@@ -127,25 +99,9 @@ export class AppComponent implements OnInit{
     }
 
   }
-  handleWeaponButtonClick(event:WeaponButtonType){
-    this.handleP1ButtonClick(event)
-    this.handleComButtonClick()
-    const selectedP1Button = this.p1Buttons.filter((val)=> !val.isDisabled)
-    const selectedComButtons = this.comButtons.filter((val)=> !val.isDisabled)
-    this.findResultAndSetWinner(selectedP1Button[0].name,selectedComButtons[0].name)
-  }
 
   resetRound(){
     this.gameResult=""
-    this.p1Buttons = [
-      {name:"Rock",icon:faHandFist,isCom:false,isDisabled:false},
-      {name:"Paper",icon:faHand,isCom:false,isDisabled:false},
-      {name:"Scissor",icon:faHandScissors,isCom:false,isDisabled:false}
-    ]
-    this.comButtons=[
-      {name:"Scissor",icon:faHandScissors,isCom:true,isDisabled:false},
-      {name:"Paper",icon:faHand,isCom:true,isDisabled:false},
-      {name:"Rock",icon:faHandFist,isCom:true,isDisabled:false},
-    ]
+   this.selectedP1Btn = undefined
   }
 }

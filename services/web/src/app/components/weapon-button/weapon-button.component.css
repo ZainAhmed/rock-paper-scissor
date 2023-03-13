@@ -10,14 +10,3 @@
     color:#023047 !important;
 }
 
-
-.com-button:disabled{
-  background-color: #023047;
-  color: #fca311 !important;
-}
-
-
-.disabledButton:disabled{
-  background-color: #999999;
-  color: #666666 !important;
-}

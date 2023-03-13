@@ -1,8 +1,11 @@
-.divider{
-    height:80%;
-    width: 5px;
-    color:black
-}
+
 .container{
-    height:70% !important
+    height:70% !important;
+
+}
+
+.appWrapper{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }

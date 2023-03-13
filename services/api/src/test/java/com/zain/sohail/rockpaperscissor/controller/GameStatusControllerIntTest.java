@@ -21,7 +21,7 @@ class GameStatusControllerIntTest {
 
     @Test
     void addGameStatus() {
-        RequestBuilder request = MockMvcRequestBuilders.post("/status/add",{"won":0,})
+//        RequestBuilder request = MockMvcRequestBuilders.post("/status/add",{})
     }
 
     @Test

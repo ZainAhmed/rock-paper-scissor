@@ -1,0 +1,16 @@
+.divider{
+    height:80%;
+    width: 10px;
+    color:black
+}
+
+.displaySelectedWeaponWrapper{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vw;
+}
+
+.icon{
+    color: #023047 !important;
+    
+}

@@ -1,11 +1,24 @@
 <app-header (resetRoundEmitter)="resetRound()" [gameResult]="gameResult"></app-header>
 
-<div class="container" fxLayoutAlign="space-evenly center" >
-    <div *ngFor="let p1Button of p1Buttons">
-        <app-weapon-button [weaponButton]="p1Button" (weaponButtonClickEmitter)="handleWeaponButtonClick($event)"></app-weapon-button>
-    </div>
-    <mat-divider [vertical]="true" class="divider"></mat-divider>
-    <div *ngFor="let comButton of comButtons">
-        <app-weapon-button [weaponButton]="comButton"></app-weapon-button>
-    </div>
-</div>
+
+    <ng-container *ngIf="selectedP1Btn === undefined ; else elseBlock">
+        <h1 class="appWrapper">Select your weapon</h1>
+        <br/>
+        <div class="container appWrapper">
+            <div *ngFor="let p1Button of p1Buttons">
+                <app-weapon-button 
+                    [weaponButton]="p1Button" 
+                    (weaponButtonClickEmitter)="handleP1ButtonClick($event)"
+                />
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #elseBlock>
+        <div class="container appWrapper">
+            <div *ngIf="selectedP1Btn!==undefined">
+                <app-display-selected-weapon 
+                [p1Weapon]="selectedP1Btn"  
+                (setResultEmitter)="findResultAndSetWinner($event)"/>
+            </div>
+        </div>
+    </ng-template>

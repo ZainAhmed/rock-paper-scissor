@@ -15,13 +15,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { DisplayScoreComponent } from './components/display-score/display-score.component';
 import { MatchCompletionDialogComponent } from './components/match-completion-dialog/match-completion-dialog.component'
 import { HttpClientModule } from '@angular/common/http';
+import { DisplaySelectedWeaponComponent } from './components/display-selected-weapon/display-selected-weapon.component';
 @NgModule({
   declarations: [
     AppComponent,
     WeaponButtonComponent,
     HeaderComponent,
     DisplayScoreComponent,
-    MatchCompletionDialogComponent
+    MatchCompletionDialogComponent,
+    DisplaySelectedWeaponComponent
   ],
   imports: [
     BrowserModule,

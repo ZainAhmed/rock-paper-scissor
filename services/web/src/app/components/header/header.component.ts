@@ -64,7 +64,7 @@ export class HeaderComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-   if(changes["gameResult"].currentValue !==""){
+   if(changes["gameResult"].currentValue.length > 0){
       setTimeout(()=>{const result = changes["gameResult"].currentValue
         if(result === "You Win"){
           this.updateScore(false)

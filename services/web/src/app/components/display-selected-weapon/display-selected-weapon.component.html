@@ -1,0 +1,31 @@
+
+<div   class="displaySelectedWeaponWrapper">
+    <ng-container *ngIf="comWeapon !== undefined && p1Weapon !==undefined ; else ElseBlock">
+        <fa-icon  
+        class="icon" 
+        flip="horizontal"
+        size="10x" 
+        [icon]="p1Weapon.icon"/>
+        <mat-divider [vertical]="true" class="divider"></mat-divider>
+        <fa-icon
+            class="icon" 
+            size="10x" 
+            [icon]="comWeapon.icon"/>
+    </ng-container>
+    <ng-template #ElseBlock>
+        <fa-icon 
+            [@IconState]="position" 
+            (@IconState.done)="completedAnimation($event)" 
+            class="icon" 
+            transform="rotate-90" 
+            size="10x" 
+            [icon]="faHandBackFist"/>
+        <mat-divider [vertical]="true" class="divider"></mat-divider>
+        <fa-icon [@IconState]="position"
+            class="icon" 
+            transform="rotate-90"
+            flip="horizontal"
+            size="10x" 
+            [icon]="faHandBackFist"/>
+    </ng-template>
+</div>
