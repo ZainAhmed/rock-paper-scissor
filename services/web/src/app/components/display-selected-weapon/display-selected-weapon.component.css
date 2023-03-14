@@ -14,3 +14,11 @@
     color: #023047 !important;
     
 }
+
+.selectedIcon{
+    display: grid;
+}
+
+.selectedIconName{
+    place-self:center;
+}

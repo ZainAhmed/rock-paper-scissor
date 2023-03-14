@@ -1,16 +1,22 @@
 
 <div   class="displaySelectedWeaponWrapper">
     <ng-container *ngIf="comWeapon !== undefined && p1Weapon !==undefined ; else ElseBlock">
-        <fa-icon  
-        class="icon" 
-        flip="horizontal"
-        size="10x" 
-        [icon]="p1Weapon.icon"/>
-        <mat-divider [vertical]="true" class="divider"></mat-divider>
-        <fa-icon
+        <div class="selectedIcon">
+            <fa-icon  
             class="icon" 
+            flip="horizontal"
             size="10x" 
-            [icon]="comWeapon.icon"/>
+            [icon]="p1Weapon.icon"/>
+            <h1 class="selectedIconName">{{p1Weapon.name}}</h1>
+        </div>
+        <mat-divider [vertical]="true" class="divider"></mat-divider>
+        <div class="selectedIcon">
+            <fa-icon
+                class="icon" 
+                size="10x" 
+                [icon]="comWeapon.icon"/>
+            <h1 class="selectedIconName">{{comWeapon.name}}</h1>
+        </div>
     </ng-container>
     <ng-template #ElseBlock>
         <fa-icon 
