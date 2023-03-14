@@ -10,7 +10,7 @@
         </ng-template>
         <div *ngIf="status !== undefined">
             <h2 class="centerText">Game Summary:</h2>
-            <h3 class="centerText">Lost {{status.lose}}    Won {{status.won}}   Draw {{status.draw}}</h3>
+            <h3 class="centerText">Lost {{status.lose}}&nbsp;&nbsp;  Won {{status.won}}  &nbsp;&nbsp; Draw {{status.draw}}</h3>
         </div>
         <button class="button" (click)='resetMatch()'mat-raised-button color="accent">
             Play again
