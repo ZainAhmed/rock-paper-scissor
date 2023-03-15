@@ -20,6 +20,12 @@ public class GameStatus {
         this.won = won;
     }
 
+    public GameStatus( Integer draw, Integer lose, Integer won) {
+        this.draw = draw;
+        this.lose = lose;
+        this.won = won;
+    }
+
     public GameStatus() {
     }
 
