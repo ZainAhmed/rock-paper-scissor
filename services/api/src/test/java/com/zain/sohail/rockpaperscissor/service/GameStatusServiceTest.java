@@ -56,5 +56,5 @@ class GameStatusServiceTest {
                 .isInstanceOf(UserNotFoundException.class)
                 .hasMessage("User by id "+ id + " was not found");
         verify(gameStatusRepo,never()).save(any());
-    }
+    } 
 }

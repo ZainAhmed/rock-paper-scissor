@@ -19,7 +19,7 @@ public class GameStatusController {
     }
 
     @GetMapping("/find/{id}")
-    public ResponseEntity<GameStatus> getAllStatuses(@PathVariable("id") Integer id){
+    public ResponseEntity<GameStatus> getStatusById(@PathVariable("id") Integer id){
          GameStatus gameStatuses = gameStatusService.findGameStatusById(id);
          return new ResponseEntity<>(gameStatuses ,HttpStatus.OK);
     }
@@ -36,7 +36,7 @@ public class GameStatusController {
     }
 
     @PutMapping("/updateByAttribute")
-    public ResponseEntity<GameStatus> updateEmployeeAttribute(@RequestBody UpdateById obj){
+    public ResponseEntity<GameStatus> updateEmployeeByAttribute(@RequestBody UpdateById obj){
         GameStatus updatedGameStatus = gameStatusService.updateGameStatusByAttribute(obj.id,obj.attribute);
         return new ResponseEntity<>(updatedGameStatus,HttpStatus.OK);
     }
