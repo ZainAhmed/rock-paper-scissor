@@ -14,4 +14,4 @@ Navigate to the services/web folder and run `npm install`. Next `ng serve` for r
 
 The web tests can be found under services/web folder. The unit tests are written in Karma while the end to end tests are written in Cypress.
 
-rockpaperscissor. The unit tests for repo and servies can be found under repo and services folders respectively. The Controllers integration tests can be found under the controller folder.
+Unit tests can be run by running `ng test` in the web folder. For running the end to end tests the backend and the frontend should be running. Then run `npm run e2e` in the web folder.
