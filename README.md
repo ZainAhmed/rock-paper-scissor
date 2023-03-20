@@ -5,4 +5,4 @@ First run the database instance by running `docker-compose up` in services/api f
 
 # Web
 
-Navigate to the services/web folder and run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Navigate to the services/web folder and run `npm install`. Next `ng serve` for running the angular application. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

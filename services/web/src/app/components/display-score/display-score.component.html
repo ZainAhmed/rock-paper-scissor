@@ -3,10 +3,10 @@
     <div class="flex-wrapper">
         <span  *ngFor='let score of scores' >
             <span *ngIf="score==0; else elseBlock">
-                <fa-icon size="2x"  class="starIcon" [icon]="outlinedStar" />
+                <fa-icon data-test-Icon="comUnfilled" size="2x"  class="starIcon comUnfilled" [icon]="outlinedStar" />
             </span>
             <ng-template #elseBlock>
-                <fa-icon size="2x"  class="starIcon" [icon]="filledStar" />
+                <fa-icon size="2x"  data-test-Icon="comFilled" class="starIcon comFilled" [icon]="filledStar" />
             </ng-template>
         </span>
         <h1 class="comHeader">{{playerName}}</h1>
@@ -17,10 +17,10 @@
         <h1 class="p1Header">{{playerName}}</h1>
         <span  *ngFor='let score of scores' >
             <span *ngIf="score==0; else elseBlock">
-                <fa-icon size="2x"  class="starIcon" [icon]="outlinedStar" />
+                <fa-icon size="2x" data-test-Icon="p1Unfilled"  class="starIcon p1Unfilled " [icon]="outlinedStar" />
             </span>
             <ng-template #elseBlock>
-                <fa-icon size="2x"  class="starIcon" [icon]="filledStar" />
+                <fa-icon size="2x"   data-test-Icon="p1Filled"class="starIcon p1Filled" [icon]="filledStar" />
             </ng-template>
         </span>
     </div>
